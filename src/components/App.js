@@ -66,7 +66,7 @@ class App extends Component {
       <div className="App">
         todo app
         <AddTask />
-        <TaskList tasks={this.state.tasks} delete={this.deleteTask} change={this.changeTaskStatus} />
+        <TaskList tasks={this.state.tasks} delete={this.deleteTask} change={this.changeTaskStatus} finishDate={this.state.finishDate} />
 
       </div>
     );
