@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   deleteTask = (id) => {
-    //1 sposob
+    //1 option
 
     // const tasks = [...this.state.tasks];
     // const index = tasks.findIndex(task => task.id === id);
@@ -23,7 +23,7 @@ class App extends Component {
     //   tasks
     // })
 
-    // 2 sposob
+    // 2 option
 
     let tasks = [...this.state.tasks];
     tasks = tasks.filter(task => task.id !== id)
@@ -61,6 +61,7 @@ class App extends Component {
     this.setState(prevState => ({
       tasks: [...prevState.tasks, task]
     }))
+    return true
   }
 
 
@@ -69,7 +70,7 @@ class App extends Component {
       <div className="App">
         <h1>TODO APP</h1>
         <AddTask add={this.addTask} />
-        <TaskList tasks={this.state.tasks} delete={this.deleteTask} change={this.changeTaskStatus} finishDate={this.state.finishDate} />
+        <TaskList tasks={this.state.tasks} delete={this.deleteTask} change={this.changeTaskStatus} finishDate={this.state.tasks.finishDate} />
 
       </div>
     );
