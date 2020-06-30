@@ -5,26 +5,10 @@ import TaskList from './TaskList'
 
 class App extends Component {
 
-  state = {
-    tasks: [
-      {
-        id: 0,
-        text: 'nauczyc sie js',
-        date: '2020-08-15',
-        important: true,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 1,
-        text: 'nauczyc sie jsssssssssssssssssssssssss',
-        date: '2020-07-15',
-        important: true,
-        active: true,
-        finishDate: null,
-      },
+  counter = 0
 
-    ]
+  state = {
+    tasks: []
 
 
   }
@@ -61,11 +45,30 @@ class App extends Component {
     })
   }
 
+  addTask = (text, date, important) => {
+    const task = {
+      id: this.counter,
+      text, // text from input
+      date, // text from input
+      important, // value from input
+      active: true,
+      finishDate: null,
+    }
+
+    this.counter++;
+
+
+    this.setState(prevState => ({
+      tasks: [...prevState.tasks, task]
+    }))
+  }
+
+
   render() {
     return (
       <div className="App">
         <h1>TODO APP</h1>
-        <AddTask />
+        <AddTask add={this.addTask} />
         <TaskList tasks={this.state.tasks} delete={this.deleteTask} change={this.changeTaskStatus} finishDate={this.state.finishDate} />
 
       </div>
